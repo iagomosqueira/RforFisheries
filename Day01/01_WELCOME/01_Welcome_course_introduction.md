@@ -56,7 +56,6 @@
 * Exploratory Data Analysis using FLR
 * Short open session
 
-JRC Fishreg: STECF MED, SA, DCF
 # Chato Osio #
 JRC Fishreg: STECF MED, SA, DCF
 

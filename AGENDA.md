@@ -53,7 +53,12 @@ Maritime Affairs Unit - FISHREG
 ### AM ###
 
 * 09.00 REVIEW, Q&A (IM, CO)
-* 09.15 T05 - Programming
+* 09.15 Programming in R
+ - Programming constructs
+ - function()
+ - debugging
+ - pkgs
+ - tips & tricks
 * 10.30 **COFFEE**
 * 12.30 **LUNCH**
 

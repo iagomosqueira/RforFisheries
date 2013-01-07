@@ -56,8 +56,15 @@
 * Exploratory Data Analysis using FLR
 * Short open session
 
+JRC Fishreg: STECF MED, SA, DCF
 # Chato Osio #
 JRC Fishreg: STECF MED, SA, DCF
+
+University of New Hampshire (USA): Historical fisheries, SA
+
+WWF/IATTC: Fisheries certifications and bycatch
+
+University of Pisa (Italy): Marine Ecology
 
 # Iago Mosqueira
 JRC Fishreg: MSE, FLR, IOTC
@@ -71,6 +78,16 @@ Imperial College London: Bayesian Geostats MAC
 IOTC WPTT & WPM
 
 # Ernesto Jardim
+JRC Fishreg: STECF, MSE, FLR
+
+Ipimar: SA, data collection, HKE, FLR
+
+University of Algarve
+
+University of Lisbon
 
 # Colin Millar
+JRC Fishreg: MSE, SA, STECF
+
+Marine Lab:
 

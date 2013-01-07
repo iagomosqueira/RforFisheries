@@ -25,12 +25,13 @@ mat[1:4,]
 
 # Get size using dim
 dim(mat)
+length(mat)
 
 # R works column first, unless instructed otherwise
 
 a <- matrix(1:16, nrow=4)
 
-a <- matrix(1:16, nrow=4, byrow=TRUE)
+b <- matrix(1:16, nrow=4, byrow=TRUE)
 
 # An important method for matrices is apply()
 
@@ -40,8 +41,17 @@ apply(mat, 2, sum)
 
 apply(mat, 1, sum)
 
-# TODO Arithmetics
+# Arithmetics work element-wise
 
+mat + 2
+
+mat * 2
+
+mat - mat
+
+# but matrix algebra is also defined
+
+mat %*% 1:10
 
 # ARRAY
 

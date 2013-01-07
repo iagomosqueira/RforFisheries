@@ -1,4 +1,4 @@
-% Chato Osio & Iago Mosqueira
+% JRC IPSC -  Maritime Affairs Unit, FishReg
 % Introduction to R & FLR for Fisheries Science
 % JAN 2013
 
@@ -18,7 +18,7 @@
 
 # 2nd objective #
 
-\centerline{\includegraphics[height=3in]{pics/getexcited.png}}
+\centerline{\includegraphics[height=2.9in]{pics/getexcited.png}}
 
 
 # Logistics #

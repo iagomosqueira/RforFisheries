@@ -81,5 +81,3 @@ is(lst[[1]])
 
 lst$repetition <- lst
 
-
-

@@ -80,7 +80,7 @@ b <- "the R course"
 msg <- c(a,b)
 
 # Using paste converts to character if needed
-paste(a, b, 2012)
+paste(a, b, 2013)
 
 # Checking data type
 is.vector(msg)
@@ -99,6 +99,8 @@ dir <- c("N", "S", "W", "E")
 dir <- as.factor(dir)
 
 levels(dir)
+
+dir[1] <- "S"
 
 # Values not in levels() are not valid
 

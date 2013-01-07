@@ -87,10 +87,6 @@ University of Algarve
 University of Lisbon
 
 # Colin Millar
-JRC Fishreg: MSE, SA, STECF
-
-Marine Lab:
-
 JRC Fishreg: MSE, STECF, FLR
 
 Marine Scotland (UK): Statistician, Stock Assesment, ICES

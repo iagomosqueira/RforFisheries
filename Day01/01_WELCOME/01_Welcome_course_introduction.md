@@ -33,34 +33,26 @@
     * Premiata Gnoccheria e Risotteria, Via Carlo Cattaneo, 1.
 
 # Outline - Day 01 #
-### AM ###
 * Installing and understanding the system
 * Introduction to R
 * Getting help
 * Data types
 * Basic operations
-
-### PM ###
 * Data manipulation
 * Plotting
 * Importing your data
 
 # Outline - Day 02 #
-
-### AM ###
-* Mapping
 * Writing functions
-* Fitting models
-
-### PM ###
-* Import and plot your own data
+* Programnming
+* Fitting basic models
+* Mapping
+* Extra plotting
 
 # Outline - Day 03 #
-
-### AM ###
 * Introduction to FLR
-
-### PM ###
+* Loading and inspecting data
+* S4 classes and methods
 * Exploratory Data Analysis using FLR
 * Short open session
 
@@ -81,3 +73,4 @@ IOTC WPTT & WPM
 # Ernesto Jardim
 
 # Colin Millar
+

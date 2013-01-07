@@ -1,10 +1,12 @@
 # Introduction to R and FLR for Fisheries Scientists
 
 3rd edition, January 2013.
-Varese (VA), Italy.
+Varese (VA) & JRC Ispra, Italy
 
-Chato Osio
+Ernesto Jardim
+Colin Millar
 Iago Mosqueira
+Chato Osio
 
 EC - JRC
 IPSC
@@ -50,23 +52,35 @@ Maritime Affairs Unit - FISHREG
 
 ### AM ###
 
-PROGRAMMING
+* 09.00 REVIEW, Q&A (IM, CO)
+* 09.15 T05 - Programming
+* 10.30 **COFFEE**
+* 12.30 **LUNCH**
 
 ### PM ###
 
+* 14.00
 MAPS
 PLOTTING
 LM
-
-* pkgs, CRAN
-* manuals, books
+* 15.30 **COFFEE**
+* 17.00 SUMMARY
+	* pkgs, CRAN
+	* manuals, books
 
 ## Day 03 ##
 
 ### AM ###
 
-* Introduction to FLR
+* 09.00 REVIEW, Q&A (IM, CO)
+* 09.15 Introduction to FLR
+* 09.30 Installing FLCore et al.
+* 09.45 T - Introducing FLCore
+* 10.30 **COFFEE**
+* 12.30 **LUNCH**
 
 ### PM ###
 
-* Exploratory Data Analysis using FLR
+* 14.00
+* 15.30 **COFFEE**
+* 17.00 SUMMARY

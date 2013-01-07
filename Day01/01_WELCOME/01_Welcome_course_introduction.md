@@ -81,3 +81,11 @@ IOTC WPTT & WPM
 # Ernesto Jardim
 
 # Colin Millar
+
+JRC Fishreg: MSE, STECF, FLR
+
+Marine Scotland (UK): Statistician, Stock Assesment, ICES
+
+St Andrews University (UK): Applied Statistics
+
+

@@ -146,5 +146,3 @@ plotPredictions <- function(mod, data, col = "blue", lwd = 2)
 }
 
 
-
-

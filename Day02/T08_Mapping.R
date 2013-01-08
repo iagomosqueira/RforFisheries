@@ -34,5 +34,5 @@ map("world", projection='albers', par=c(-20,45)) # Albers equal-area projection
 # now for Europe
 map("world", xlim = c(-10, 30), ylim = c(36, 65))
 map("world", projection='bonne', par = 45, xlim = c(-10, 30), ylim = c(36, 65))
-map("world", projection='albers', par = c(-20,45), xlim = c(-10, 30), ylim = c(36, 65))
+map("world", projection='albers', par = c(-10,30), xlim = c(-10, 30), ylim = c(36, 65))
 

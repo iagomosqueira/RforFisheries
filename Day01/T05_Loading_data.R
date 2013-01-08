@@ -16,6 +16,8 @@
 
 # Read the ple4.csv file into a data.frame
 
+ple4 <- read.table(file="ple4.csv", sep=",", header=TRUE)
+
 ple4 <- read.csv("ple4.csv", header=TRUE)
 
 # Plot the S/R datapoints

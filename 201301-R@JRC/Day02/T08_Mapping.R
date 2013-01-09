@@ -23,9 +23,16 @@ head(ozone)
 
 plot(ozone$x, ozone$y)
 
-# World map with default rectangular projection
+# World map with default rectangular projection (latitude and longitude)
 map("world")
 
 # other types of projections
 map("world", projection='bonne', par=45)  # Bonne equal-area projection of states
-map("world", projection='albers', par=c(-20,45))
+map("world", projection='albers', par=c(-20,45)) # Albers equal-area projection
+
+
+# now for Europe
+map("world", xlim = c(-10, 30), ylim = c(36, 65))
+map("world", projection='bonne', par = 45, xlim = c(-10, 30), ylim = c(36, 65))
+map("world", projection='albers', par = c(-10,30), xlim = c(-10, 30), ylim = c(36, 65))
+

@@ -37,6 +37,7 @@ mod1 <- lm(urbanO ~ year, data = dat)
 
 # a quick F test
 anova(mod0, mod1, test = "F")
+
 # linear effect of year is highly significant
 
 # some diagnostics

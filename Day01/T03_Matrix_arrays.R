@@ -13,14 +13,14 @@
 
 # Constructed using matrix()
 
-matrix(rnorm(100), ncol=10, nrow=10)
+matrix(rnorm(10), ncol=10, nrow=10)
 
 mat <- matrix(rnorm(100), ncol=10, nrow=10)
 
 # Subsetting as in df
 
 mat[1, 2]
-mat[1, ]
+mat[1, ,drop=FALSE]
 mat[1:4,]
 
 # Get size using dim
@@ -84,4 +84,3 @@ arr + (arr / 2)
 apply(arr, 2, sum)
 
 apply(arr, 2:3, sum)
-

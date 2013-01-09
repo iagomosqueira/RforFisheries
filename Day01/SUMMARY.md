@@ -11,3 +11,5 @@
 5. Plot data and results
 6. Find help and support
 
+
+http://dl.dropbox.com/u/389113/Day01.zip

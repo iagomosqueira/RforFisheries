@@ -38,58 +38,61 @@ df <- data.frame(x=rlnorm(20), y=rlnorm(20))
 apply(df, 2, sum)
 
 foo <- function(x) {
-  return(x/mean(x))
+  x/mean(x)
 }
 
-apply(df, 2, foo)
+apply(df, 2, sum)
 
+x <- df
+
+# option 1
+
+y <- x/mean(x)
+boxplot(y)
+
+# option 2
+boxplot(x/mean(x))
+
+#
+foo <- function(x) {
+  boxplot(x/mean(x))
+}
+
+foo(df)
 
 # Exercise 01
 
 # Write a function to calculate the CV of a vector
 
 cv <- function(x) {
-  return(abs(sd(x)/mean(x)))
+  abs(sd(x)/mean(x))
 }
 
 cv(rnorm(90))
 
+# apply it to a data.frame
+
 apply(df, 2, cv)
 
-# divsum, what does it do?
+# print the result on the console
 
-divsum <- function(x) {
-
-  su <- apply(x, 2, sum)
-
-  res <- x / matrix(rep(su, each=5), nrow=nrow(x))
-
-  return(res)
-
+cv <- function(x) {
+  a <- abs(sd(x)/mean(x))
+  cat(a)
+  a
 }
 
+# include a plot option
 
-# Testing it
-
-mat <- matrix(1:20, ncol=4)
-
-divsum(mat)
-
-apply(divsum(mat), 2, sum)
-
-# Will this work?
-
-divsum(x)
-
-# vs.
-
-divsum(x=mat)
-
+foo <- function(x, plot=TRUE){
+  y <- apply(x, 2, cv)
+  if(plot) plot(y)
+}
 
 # SCOPE
 
 foo <- function(x) {
-  a <- 9
+  #a <- 9
   return(x + a)
 }
 

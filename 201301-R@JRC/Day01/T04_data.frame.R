@@ -63,7 +63,7 @@ lst <- list(data=dat, description="Some data we cooked up")
 # Extract elements by name using $
 lst$dat
 
-is.data.frame(lst$dat)
+is.data.frame(lst$data)
 
 # or using [ and [[
 # [ name/position subsets the list

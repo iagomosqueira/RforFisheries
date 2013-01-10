@@ -30,3 +30,7 @@
 # 3. Add a column with 0 or 1 for values in numeric column > or <= 5
 
 # 4. Extract rows with value of new column equal to 1
+
+
+
+

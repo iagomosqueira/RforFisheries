@@ -12,6 +12,7 @@
 
 # http://data.gov.uk//dataset/annual-levels-of-particles-and-ozone-1987-to-2010
 
+
 dat <- read.table("http://data.defra.gov.uk/env/aqfg02a-apart-201202.csv", 
                   sep = ",", skip = 17, header = TRUE)
 
@@ -51,6 +52,7 @@ confint(mod1)
 
 # predict the model over a range of years - we will project up to 2020
 newdata <- data.frame(year = seq(1987, 2020, length = 100))
+
 pred <- predict(mod1, newdata, se.fit = TRUE)
 
 # add predictions with approximate 95% confidence interval to prediction data.frame
@@ -89,7 +91,7 @@ plotPredictions <- function(mod, data, col = "blue", lwd = 2)
 plot(dat$year, dat$urbanO, xlim = c(1987, 2020), ylim = c(35, 72), pch = 19)
 # plot predictions
 newdata <- data.frame(year = seq(1987, 2020, length = 100))
-plotPredictions(mod1, newdata, col = "blue", lwd = 2)
+plotPredictions(mod1, newdata, col = "blue", lwd = 1)
 
 
 ##############

@@ -65,15 +65,15 @@ map("worldHires", projection='albers', par = c(-10,30), xlim = c(-10, 30), ylim 
 # now for Italy
 map("italy", interior = FALSE)
 
-map("italy", boundary = FALSE, lty = 2, add = TRUE)
-
 # add Ispra
 points(8.6306, 45.8000, pch = 19, col = "red") 
 points(8.6306, 45.8000, pch = 1, col = "blue", cex = 2, lwd = 2) 
 
-points(8.6306, 45.8000, pch = 19, col = "red") 
-points(8.6306, 45.8000, pch = 1, col = "blue", cex = 2, lwd = 2) 
 
+# also see this webpage for much better examples!
+#
+# http://blog.revolutionanalytics.com/2009/10/geographic-maps-in-r.html 
+#
 
 
 

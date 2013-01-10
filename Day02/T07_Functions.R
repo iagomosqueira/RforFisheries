@@ -14,10 +14,17 @@
 
 # foo
 
+
 foo <- function(arg) {
-  res <- arg + 1
+  res <- arg + b
   return(res)
 }
+
+x<-1
+
+foo(x)
+
+res
 
 # args: default values
 
@@ -28,6 +35,7 @@ foo <- function(x, power=2) {
 foo(3)
 
 foo(3, power=3)
+foo(power=3, 1)
 foo(3, pow=3)
 
 foo(3, 3)
@@ -48,9 +56,20 @@ apply(df, 2, foo)
 
 # Write a function to calculate the CV of a vector
 
+cv <- function(x)
+
+cv(rnorm(100))
+
+
+
+cv <- function(x, na.rm=TRUE) {
+  return(abs(sd(x, na.rm=na.rm)/mean(x, na.rm=na.rm)))
+}
+
 cv <- function(x) {
   return(abs(sd(x)/mean(x)))
 }
+
 
 cv(rnorm(90))
 

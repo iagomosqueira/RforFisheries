@@ -1,6 +1,8 @@
 # T00_ExampleAnalysis.R - DESC
 # T00_ExampleAnalysis.R
 
+http://dl.dropbox.com/u/389113/Day02.zip
+
 # Copyright 2011-13 JRC FishReg. Distributed under the GPL 2 or later
 # Maintainer: FishReg, JRC
 
@@ -10,6 +12,10 @@
 # http://www.esrl.noaa.gov/psd/data/climateindices/list/
 
 nao <- read.table("http://www.cdc.noaa.gov/data/correlation/nao.data",
+	skip=1, nrow=64, na.strings="-99.90")
+
+# ATERNATIVELY
+nao <- read.table("nao.data",
 	skip=1, nrow=64, na.strings="-99.90")
 
 # INSPECT data.frame
@@ -45,6 +51,21 @@ bars <- barplot(sprnao, col=color, border=color)
 lines(bars, lowess(sprnao)$y)
 
 
+
+
+
+# (1) Plot the NAO values for March in red
+plot(nao$year, nao$March, type='b', col="red", xlab="",
+     ylab="NAO")
+
+# (2) Add NAO values for September in blue
+lines(nao$year, nao$September, col="blue", lwd=2, lty=3)
+
+points(nao$year, nao$September, col="blue", pch=3)
+
+plot(nao$March, nao$September, pch=19)
+abline(0, 0.5)
+
 # North Sea Sole SR data
 
 sol <- read.table("sole.dat", sep="\t", header=TRUE)
@@ -55,7 +76,7 @@ summary(sol[,-1])
 
 # PLOT SR relationship
 
-plot(sol$rec[-1]~sol$ssb[-36], pch=19, cex=0.6, xlab="SSB (t)", ylab="recruits (1e+05)",
+plot(sol$rec[-1] ~ sol$ssb[-36], pch=19, cex=0.6, xlab="SSB (t)", ylab="recruits (1e+05)",
 	xlim=c(0, max(sol$ssb)*1.2), ylim=c(0, max(sol$rec)))
 
 # CALCULATE mean recruitment
@@ -88,4 +109,7 @@ acf(sol$rec)
 
 # LINEAR MODEL of SSB and recruitment
 
-lm(rec~ssb, sol)
+mod <- lm(rec~ssb, sol)
+
+# Akaike Information Criterion
+AIC(mod)

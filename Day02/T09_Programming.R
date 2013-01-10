@@ -14,7 +14,7 @@
 # else ACTION
 
 foo <- function(x) {
-  if(x > 2) {
+  if(any(x > 2) {
     print("x is larger than 2")
   } else {
     print("it is not!")
@@ -33,8 +33,9 @@ foo(1)
 # for(INDEX in SEQUENCE) { ACTION }
 
 
-for(i in seq(1, 10))
+for(i in seq(1, 10)) {
   print(i)
+}
 
 
 # A simple population model: exponential growth of bacteria
@@ -75,4 +76,3 @@ expgr <- function(gen=10, r=2, plot=TRUE) {
 }
 
 expgr(25, plot=FALSE)
-

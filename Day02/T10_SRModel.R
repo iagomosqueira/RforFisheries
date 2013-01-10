@@ -9,12 +9,19 @@
 # LOAD data
 
 sol <- read.table('sole.dat', header=T, sep='\t')
-attach(sol)
+
+# ADD
+rec <- sol$rec[-1]
+ssb <- sol$ssb[-36]
 
 # FUNCTION that returns minus log-likelihood (Beverton & Holt model)
 
-foo <- function(par)
+foo <- function(par) {
   sum(log(rec / (par[1] * ssb / (par[2] + ssb)))^2)
+}
+
+# Ricker
+rec ~ a * ssb * exp(-b * ssb)
 
 # CALL optimizer
 res <- optim(c(5000, 1000), foo)

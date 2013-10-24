@@ -26,7 +26,7 @@ Maritime Affairs Unit - FISHREG
 
 * 12.30 **LUNCH**
 
-### Afternoon (14:00 - 17:00) ###
+### Afternoon (14:00 - 17:30) ###
 
 * Introducing R
  - pkgs
@@ -51,26 +51,26 @@ Maritime Affairs Unit - FISHREG
 		- Summary statistics
 		- plot() et al.
 * Plots
-* 17.00 SUMMARY
+* 17.30 SUMMARY
 * 'Soft' presentation?
 	* pkgs, CRAN
 	* manuals, books
 
-READING IN DATA???
 
 ## Tuesday ##
 
 ### Morning (09:30 - 12:30) ###
 
 * 09.00 REVIEW, Q&A (CO, CM, FS)
-* Maps (CO)
 
+* Maps (CO)
 * 10.30 **COFFEE**
 
+* Maps (CO)
 
 * 12.30 **LUNCH**
 
-### Afternoon 14:00 - 17:00 ###
+### Afternoon 14:00 - 17:30 ###
 
 * 14.00 Data exploration (CM)
     * M by age
@@ -78,7 +78,7 @@ READING IN DATA???
     * Hist LFD
 
 
-* 17.00 SUMMARY
+* 17.30 SUMMARY
 * 'Soft' presentation (??)
 
 ## Wednesday ##
@@ -87,20 +87,21 @@ READING IN DATA???
 
 * 09.00 REVIEW, Q&A (CO, CM, FS)
 
-* 09.15 Introduction to FLR
-* 09.30 Installing FLCore et al.
-* FLQuants
+* Reading in data
 * 10.30 **COFFEE**
+* Introduction to FLR
+* Installing FLCore et al.
+* FLQuants
 * FLStock  - plots and summaries etc
 * 12.30 **LUNCH**
 
-### Afternoon 14:00 - 17:00 ###
+### Afternoon 14:00 - 17:30 ###
 
 * 14.00
 * More FLR
 * 15.30 **COFFEE**
 * More FLR
-* 17.00 SUMMARY
+* 17.30 SUMMARY
 * 'Soft' presentation - reproducible research (??)
 
 ## Thursday ##
@@ -109,12 +110,12 @@ READING IN DATA???
 * 09.00 REVIEW, Q&A (CO, CM, FS)
 * FLa4a and FLXSA (CM)
 
-### Afternoon 14:00 - 17:00 ###
+### Afternoon 14:00 - 17:30 ###
 * More FLa4a and FLXSA (CM)
     * Diagnostics etc
 
 
-* 17.00 SUMMARY
+* 17.30 SUMMARY
 * 'Soft' presentation ??? (??)
 
 ## Friday ##
@@ -124,7 +125,7 @@ READING IN DATA???
 * Reference points (CO)
 
 
-### Afternoon 14:00 - 17:00 ###
+### Afternoon 14:00 - 17:30 ###
 * Forecasting (FS)
 * OR
 * Open session

@@ -1,12 +1,10 @@
-# Introduction to R and FLR for Fisheries Scientists
+# Improving the Analysis of Fisheries Data: An Introduction to R and the Fisheries Library based on R (FLR) 
+November 2013
+GFCM HQ, Roma, Italy
 
-3rd edition, January 2013.
-Varese (VA) & JRC Ispra, Italy
-
-Ernesto Jardim
-Colin Millar
-Iago Mosqueira
 Chato Osio
+Colin Millar
+Finlay Scott
 
 EC - JRC
 IPSC
@@ -14,78 +12,120 @@ Maritime Affairs Unit - FISHREG
 
 # AGENDA #
 
-## Day 01 ##
+## Monday ##
 
-### AM ###
+### Morning (09:30 - 12:30) ###
 
-* 09.00 WELCOME - Introduction to R for Fisheries Science (IM, CO)
-* 09.30 Installing and setting up the system: R, RStudio (IM, CO)
-* 09.45 Getting started with R & RStudio (IM)
-* 10.00 T01 - R expressions, variables and objects
+
+* 09.00 Welcome and Introductions (CO, CM, FS, ...)
+*       Opening presentation and agenda (FS)
+
+* 10.30 **COFFEE**
+* Networks, installing and setting up the system: R, RStudio (FS)
+* Getting started with R & RStudio (CO)
+
+* 12.30 **LUNCH**
+
+### Afternoon (14:00 - 17:00) ###
+
+* Introducing R
+ - pkgs
+
+* E01 - VECTORS
+
+* T01 - R expressions, variables and objects (CO)
     - Basic R expressions
 		- Creating and inspecting variables
 		- The workspace
 		- Getting help
-* 10.30 **COFFEE**
-* 11.00 T02 - VECTORS: creating, operating, arithmetics and plots (CO)
+* T02 - VECTORS: creating, operating, arithmetics and plots (CO)
     - Creating vectors
 		- Subsetting, logical selection, regular expressions
 		- Plotting
 		- LOGICAL, FACTORS, STRINGS
-* 12.00 E01 - VECTORS
-* 12.30 **LUNCH**
 
-### PM ###
+* 15.30 **COFFEE**
 
-* 14.00 T03 - Matrices & arrays (IM)
+* T03 - Matrices & arrays + T04 - data.frames (CO)
     - matrix(), array()
 		- Summary statistics
 		- plot() et al.
-* 14.00 E02 - Matrices & arrays
-* 15.00 T04 - data.frame(s) (CO)
-* 15.30 **COFFEE**
-* 16.00 T05 - Importing your data (CO)
-* 16.30 E03 - Loading data, data.frame, plotting
+* Plots
 * 17.00 SUMMARY
-
-## Day 02 ##
-
-### AM ###
-
-* 09.00 REVIEW, Q&A (IM, CO)
-* 09.15 Programming in R
- - Programming constructs
- - function()
- - debugging
- - pkgs
- - tips & tricks
-* 10.30 **COFFEE**
-* 12.30 **LUNCH**
-
-### PM ###
-
-* 14.00
-MAPS
-PLOTTING
-LM
-* 15.30 **COFFEE**
-* 17.00 SUMMARY
+* 'Soft' presentation?
 	* pkgs, CRAN
 	* manuals, books
 
-## Day 03 ##
+READING IN DATA???
 
-### AM ###
+## Tuesday ##
 
-* 09.00 REVIEW, Q&A (IM, CO)
-* 09.15 Introduction to FLR
-* 09.30 Installing FLCore et al.
-* 09.45 T - Introducing FLCore
+### Morning (09:30 - 12:30) ###
+
+* 09.00 REVIEW, Q&A (CO, CM, FS)
+* Maps (CO)
+
 * 10.30 **COFFEE**
+
+
 * 12.30 **LUNCH**
 
-### PM ###
+### Afternoon 14:00 - 17:00 ###
+
+* 14.00 Data exploration (CM)
+    * M by age
+    * Plot maturity
+    * Hist LFD
+
+
+* 17.00 SUMMARY
+* 'Soft' presentation (??)
+
+## Wednesday ##
+
+### Morning (09:30 - 12:30) ###
+
+* 09.00 REVIEW, Q&A (CO, CM, FS)
+
+* 09.15 Introduction to FLR
+* 09.30 Installing FLCore et al.
+* FLQuants
+* 10.30 **COFFEE**
+* FLStock  - plots and summaries etc
+* 12.30 **LUNCH**
+
+### Afternoon 14:00 - 17:00 ###
 
 * 14.00
+* More FLR
 * 15.30 **COFFEE**
+* More FLR
 * 17.00 SUMMARY
+* 'Soft' presentation - reproducible research (??)
+
+## Thursday ##
+
+### Morning (09:30 - 12:30) ###
+* 09.00 REVIEW, Q&A (CO, CM, FS)
+* FLa4a and FLXSA (CM)
+
+### Afternoon 14:00 - 17:00 ###
+* More FLa4a and FLXSA (CM)
+    * Diagnostics etc
+
+
+* 17.00 SUMMARY
+* 'Soft' presentation ??? (??)
+
+## Friday ##
+
+### Morning (09:30 - 12:30) ###
+* 09.00 REVIEW, Q&A (CO, CM, FS)
+* Reference points (CO)
+
+
+### Afternoon 14:00 - 17:00 ###
+* Forecasting (FS)
+* OR
+* Open session
+

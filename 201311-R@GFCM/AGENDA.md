@@ -21,8 +21,9 @@ Maritime Affairs Unit - FISHREG
 *       Opening presentation and agenda (FS)
 
 * 10.30 **COFFEE**
-* Networks, installing and setting up the system: R, RStudio (FS)
-* Getting started with R & RStudio (CO)
+
+* 11.00 Networks, installing and setting up the system: R, RStudio (FS)
+*       Getting started with R & RStudio (CO)
 
 * 12.30 **LUNCH**
 
@@ -86,13 +87,16 @@ Maritime Affairs Unit - FISHREG
 ### Morning (09:30 - 12:30) ###
 
 * 09.00 REVIEW, Q&A (CO, CM, FS)
+*       Introduction to FLR
+*       Installing FLCore et al.
 
-* Reading in data
 * 10.30 **COFFEE**
-* Introduction to FLR
-* Installing FLCore et al.
-* FLQuants
-* FLStock  - plots and summaries etc
+
+* 11.00 FLQuant tutorial
+        - Accessing and manipulating
+        - Reading data into FLQuant
+*       FLStock tutorial
+
 * 12.30 **LUNCH**
 
 ### Afternoon 14:00 - 17:30 ###

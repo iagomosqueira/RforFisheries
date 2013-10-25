@@ -27,7 +27,7 @@ The guiding principles of FLR are:
 * **flexibility** - through a design that does not constrain the user to a given paradigm
 * **extendibility** - through the provision of tools that are ready to be personalized and adapted
 
-# FLR goals
+# FLR mission
 
 To **promote and generalize** the use of **good quality, open source,
 flexible software** in all areas of quantitative fisheries research and

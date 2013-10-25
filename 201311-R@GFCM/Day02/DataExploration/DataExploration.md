@@ -1,62 +1,50 @@
-% Improving the Analysis of Fisheries Data: An Introduction to R and the Fisheries Library in R (FLR) 
+% Data Exploration 
 % FISHREG - European Commission Joint Research Centre
 % November 2013
 
-# Welcome to Rome
+# The purpose of data exploration
 
-\centering
-\includegraphics[keepaspectratio, width=0.8\textwidth]{graphics/colosseum.jpg}
+* get to know the data
+* understand the range of data
+* identify where there could be issues
+* other stuff
 
-# Who are we?
+# Approaches to data exploration
 
-## Chato Osio - MED, STECF
+## graphical summaries
 
-## Colin Millar - a4a, MPs
+## tabular summaries
 
-## Finlay Scott - BioEco, FLR
 
-## Who are you?
+# Tabular summaries
 
-# Course outline
+# summary
 
-1. Installing R
-2. R basics
-3. Mapping
-4. Exploratory Data Analysis (EDA)
-5. Fisheries Library in R (FLR)
-6. Stock assessment
-7. Reference points
-8. Forecasting
+# table
 
-# How will it run?
+# tapply
 
-- Presentations
-- Tutorials
-- Exercises
+# by
 
-# Daily structure
+# subset and unique
 
-* TIMETABLE: 9.00 - 12.30 / 14.00 - 17.30
-* BREAKS @ 10.30 / 15.30
 
-# Agenda
+# graphical summaries
 
-# Ready ?!?
+# plot
 
-\begin{columns}
-\begin{column}{0.6\textwidth}
-{
-\begin{quotation}
-Men learn while they teach.
-\end{quotation}
+# plotting lines and points
 
-Seneca the Younger
-}
-\end{column}
-\begin{column}{0.4\textwidth}
-\includegraphics[keepaspectratio, width=\textwidth]{graphics/seneca.jpg}
-\end{column}
-\end{columns}
+# plotting scatter plots
 
+# plotting scatter plots by age
+
+# some examples
+
+# weight at age
+
+# F at age
+
+# grouping Fs at age
 
 

@@ -5,9 +5,10 @@
 # Why R?
 
 * Simple yet powerful
+* Multi-platform
 * Easily extendable
 * Huge community = support
-* Open and free...
+* Open source and free...
 
 # Materials
 

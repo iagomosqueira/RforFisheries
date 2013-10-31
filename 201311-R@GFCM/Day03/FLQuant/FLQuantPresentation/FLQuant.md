@@ -25,6 +25,8 @@ FLQuant = Array with 6 dimensions
 
 Plus `units`
 
+# Installing FLR
 
+install.packages(repos="htpp://flr-project.org/R")
 
 

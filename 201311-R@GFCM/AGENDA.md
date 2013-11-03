@@ -27,6 +27,7 @@ Maritime Affairs Unit - FISHREG
 
 * 12.30 **LUNCH**
 
+
 ### Afternoon (14:00 - 17:30) ###
 
 * Introducing R
@@ -64,23 +65,32 @@ Maritime Affairs Unit - FISHREG
 
 * 09.00 REVIEW, Q&A (CO, CM, FS)
 
-* Maps (CO)
+* Data exploration (CM)
+    * M by age
+    * Plot maturity
+    * Hist LFD
+
 * 10.30 **COFFEE**
 
-* Maps (CO)
-
-* 12.30 **LUNCH**
-
-### Afternoon 14:00 - 17:30 ###
-
-* 14.00 Data exploration (CM)
+* Data exploration continued
     * M by age
     * Plot maturity
     * Hist LFD
 
 
+* 12.30 **LUNCH**
+
+### Afternoon 14:00 - 17:30 ###
+
+* Maps (CO)
+
+* 15.30 **COFFEE**
+
+* Maps (CO)
+
 * 17.30 SUMMARY
 * 'Soft' presentation (??)
+
 
 ## Wednesday ##
 
@@ -105,6 +115,7 @@ Maritime Affairs Unit - FISHREG
 * More FLR
 * 17.30 SUMMARY
 * 'Soft' presentation - reproducible research (??)
+
 
 ## Thursday ##
 

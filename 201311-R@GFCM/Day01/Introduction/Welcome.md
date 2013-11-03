@@ -11,7 +11,7 @@
 
 ## Chato Osio - MED, STECF
 
-## Colin Millar - a4a, MPs
+## Colin Millar - a4a, ICES WGs
 
 ## Finlay Scott - BioEco, FLR
 

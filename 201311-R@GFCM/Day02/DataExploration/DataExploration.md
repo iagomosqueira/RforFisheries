@@ -20,6 +20,13 @@
 
 # summary
 
+```r
+summary(x)
+>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+>    412    7030   29000   81700  102000 1460000 
+
+```
+
 # table
 
 # tapply

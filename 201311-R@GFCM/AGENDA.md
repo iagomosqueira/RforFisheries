@@ -17,7 +17,7 @@ Maritime Affairs Unit - FISHREG
 ### Morning (09:30 - 12:30) ###
 
 
-* 09.00 Welcome and Introductions (CO, CM, FS, ...)
+* 09.30 Welcome and Introductions (CO, CM, FS, ...)
 *       Opening presentation and agenda (FS)
 
 * 10.30 **COFFEE**
@@ -27,41 +27,20 @@ Maritime Affairs Unit - FISHREG
 
 * 12.30 **LUNCH**
 
+### Afternoon (13:30 - 17:30) ###
 
-### Afternoon (14:00 - 17:30) ###
+* 13.30 Introducing R (CO)
 
-* Introducing R
- - pkgs
+* 15.00 **COFFEE**
 
-* E01 - VECTORS
+* 15.30 Introducing R (CO)
 
-* T01 - R expressions, variables and objects (CO)
-    - Basic R expressions
-		- Creating and inspecting variables
-		- The workspace
-		- Getting help
-* T02 - VECTORS: creating, operating, arithmetics and plots (CO)
-    - Creating vectors
-		- Subsetting, logical selection, regular expressions
-		- Plotting
-		- LOGICAL, FACTORS, STRINGS
-
-* 15.30 **COFFEE**
-
-* T03 - Matrices & arrays + T04 - data.frames (CO)
-    - matrix(), array()
-		- Summary statistics
-		- plot() et al.
-* Plots
-* 17.30 SUMMARY
-* 'Soft' presentation?
-	* pkgs, CRAN
-	* manuals, books
+* 17.00 SUMMARY
 
 
 ## Tuesday ##
 
-### Morning (09:30 - 12:30) ###
+### Morning (09:00 - 12:30) ###
 
 * 09.00 REVIEW, Q&A (CO, CM, FS)
 
@@ -80,7 +59,7 @@ Maritime Affairs Unit - FISHREG
 
 * 12.30 **LUNCH**
 
-### Afternoon 14:00 - 17:30 ###
+### Afternoon 13:30 - 17:30 ###
 
 * Maps (CO)
 
@@ -88,13 +67,12 @@ Maritime Affairs Unit - FISHREG
 
 * Maps (CO)
 
-* 17.30 SUMMARY
-* 'Soft' presentation (??)
+* 17.00 SUMMARY
 
 
 ## Wednesday ##
 
-### Morning (09:30 - 12:30) ###
+### Morning (09:00 - 12:30) ###
 
 * 09.00 REVIEW, Q&A (CO, CM, FS)
 *       Introduction to FLR
@@ -106,15 +84,14 @@ Maritime Affairs Unit - FISHREG
 
 * 12.30 **LUNCH**
 
-### Afternoon 14:00 - 17:30 ###
+### Afternoon 13:30 - 17:00 ###
 
 * 14.00 FLStock tutorial
 
 * 15.30 **COFFEE**
 
-* More FLR
-* 17.30 SUMMARY
-* 'Soft' presentation - reproducible research (??)
+*       More FLR
+* 17.00 SUMMARY
 
 
 ## Thursday ##
@@ -128,12 +105,11 @@ Maritime Affairs Unit - FISHREG
     * Diagnostics etc
 
 
-* 17.30 SUMMARY
-* 'Soft' presentation ??? (??)
+* 17.00 SUMMARY
 
 ## Friday ##
 
-### Morning (09:30 - 12:30) ###
+### Morning (09:00 - 12:30) ###
 * 09.00 REVIEW, Q&A (CO, CM, FS)
 * Reference points (CO)
 

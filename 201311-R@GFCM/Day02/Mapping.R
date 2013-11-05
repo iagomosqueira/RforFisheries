@@ -25,7 +25,7 @@ map("world") # this uses as default a rectangular projection with the aspect rat
 # longitude and latitude scales are equivalent at the center of the picture
 
 # other types of projections
-map("world", projection='bonne', par=45) # Bonne equal-area projection of states
+map("world", projection='bonne', par=10) # Bonne equal-area projection of states
 map("world", projection='albers', par=c(-20,45))
 
 #type of coordinates
@@ -59,7 +59,7 @@ map("state", xlim = range(ozone$x), ylim = range(ozone$y))
 # add the values of ozone concentration median with the text command
 text(ozone$x, ozone$y, ozone$median)
 box()
-mymap<-map("state", xlim = range(ozone$x), ylim = range(ozone$y))
+map("state", xlim = range(ozone$x), ylim = range(ozone$y))
 
 symbols(ozone$x, ozone$y, circles=ozone$median/500, add=T,inches=FALSE, fg="red")
 
@@ -78,11 +78,9 @@ box()
 
 # 3 fill the squares with a green color and add map axes
 
-# 4 Add a legend where the size of the bubbles as a scale, hints use pt.cex in legend command and define few values of ozone to
+# 4 Add a legend where the size of the bubbles as a scale, hints use pt.cex in legend command and define few values of ozone to 
 # reduce the legend size
 
-
-############################################################################################################################
 #SOLUTIONS
 # 1 Make a map of the ozone data with margins larger 1 Degree more than the actual data limits in order to get a better map
 # (hint use min and max) and make state contours blue.
@@ -108,21 +106,26 @@ scale<-c(34,60,100)
 legend("topleft", legend=paste(scale), text.col="red", pch=1, pt.cex=ozone$median*0.5, col="red", bty="n", title="Ozone Density", cex=0.5)
 map.axes()
 
-##################################################################
+
+
+############################################################################################################################
+library(ggmap)
 
 # Introducing ggmap
 
-geocode("rome via colonna 1")
+geocode("rome via vittoria colonna 1")
 
 map<-ggmap(
-	   get_googlemap(
-	        center=c(12.47284, 41.90513), #Long/lat of centre, or "Edinburgh"
-	         zoom=4, 
-	        maptype='roadmap', #also hybrid/terrain/roadmap
-	         scale = 2), #resolution scaling, 1 (low) or 2 (high)
-	     size = c(600, 600), #size of the image to grab
-	     extent='device', #can also be "normal" etc
-	     darken = 0) #you can dim the map when plotting on top
+  get_googlemap(
+    center="rome via vittoria colonna 1", #Long/lat of centre, or "Edinburgh"
+    zoom=4, 
+    maptype='hybrid', #also hybrid/terrain/roadmap
+    scale = 2), #resolution scaling, 1 (low) or 2 (high)
+  size = c(600, 600), #size of the image to grab
+  extent='device', #can also be "normal" etc
+  darken = 0) #you can dim the map when plotting on top
+map
+
 
 #Generate some data
 long = c(0, 1, 12, 14)
@@ -132,17 +135,32 @@ data = data.frame (long, lat, who)
 
 
 map+geom_point(data=data, aes(y=lat, x=long, fill = factor (who)), 
-							 pch = 21, 
-							 colour = "white", 
-							 size = 6) 
+               pch = 21, 
+               colour = "white", 
+               size = 6) 
 
 
 # Assignment
+# Use the ozone data and plot it using ggmap
 
-Plot the ozone data on a with on a google map !
 
-# Nice tutorial
-#http://journal.r-project.org/archive/2013-1/kahle-wickham.pdf
+# Solution
+map<-ggmap(
+  get_googlemap(
+    center="New York", #Long/lat of centre, or "Edinburgh"
+    zoom=7, 
+    maptype='hybrid', #also hybrid/terrain/roadmap
+    scale = 2), #resolution scaling, 1 (low) or 2 (high)
+  size = c(600, 600), #size of the image to grab
+  extent='device', #can also be "normal" etc
+  darken = 0) #you can dim the map when plotting on top
 
-#The most attractive aspect of using different map sources (Google Maps, OpenStreetMap, StamenMaps, and CloudMade Maps) is
 
+  map+geom_point(data=ozone, aes(y=y, x=x, size=median), 
+                 pch = 21, 
+                 colour = "red", fill="red", alpha=0.5) 
+  
+  # Nice tutorial
+  #http://journal.r-project.org/archive/2013-1/kahle-wickham.pdf
+  
+  #The most attractive aspect of using different map sources (Google Maps, OpenStreetMap, StamenMaps, and CloudMade Maps) is

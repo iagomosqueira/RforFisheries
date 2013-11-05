@@ -75,22 +75,24 @@ Maritime Affairs Unit - FISHREG
 ### Morning (09:00 - 12:30) ###
 
 * 09.00 REVIEW, Q&A (CO, CM, FS)
-*       Introduction to FLR
+* 09.15 Introduction to FLR
 *       Installing FLCore
+*       FLQuant tutorial
 
 * 10.30 **COFFEE**
 
-* 11.00 FLQuant tutorial
+* 11.00 FLQuant tutorial and exercises
 
 * 12.30 **LUNCH**
 
 ### Afternoon 13:30 - 17:00 ###
 
-* 14.00 FLStock tutorial
+* 14.00 FLStock tutorial and exercises
 
-* 15.30 **COFFEE**
+* 15.00 **COFFEE**
 
-*       More FLR
+* 15.30 More FLR
+*       Forecasting
 * 17.00 SUMMARY
 
 

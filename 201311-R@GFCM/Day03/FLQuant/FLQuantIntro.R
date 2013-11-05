@@ -416,4 +416,8 @@ mean(flp) <- mean(flp)*2
 # FLQuant objects can be generated once we assume a probability distribution
 rnorm(20, flp)
 
+# 
+install.packages(repos="http://flr-project.org/R", pkgs="FLEDA")
+library(FLEDA)
+bubbles(age ~ year, data = fq, bub.scale = 10)
 

@@ -34,17 +34,19 @@
 - Tutorials
 - Exercises
 
+\url{https://github.com/iagomosqueira/RforFisheries}
+
 # Daily structure
 
-* TIMETABLE: 9.00 - 12.30 / 14.00 - 17.30
-* BREAKS @ 10.30 / 15.30
+* TIMETABLE: 9.00 - 12.30 / 13.30 - 17.00
+* BREAKS @ 10.30 / 15.00
 
 # Agenda
 
 # Ready ?!?
 
 \begin{columns}
-\begin{column}{0.6\textwidth}
+\begin{column}{0.7\textwidth}
 {
 \begin{quotation}
 Men learn while they teach.
@@ -53,7 +55,7 @@ Men learn while they teach.
 Seneca the Younger
 }
 \end{column}
-\begin{column}{0.4\textwidth}
+\begin{column}{0.3\textwidth}
 \includegraphics[keepaspectratio, width=\textwidth]{graphics/seneca.jpg}
 \end{column}
 \end{columns}

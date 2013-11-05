@@ -1,6 +1,6 @@
 % R and RStudio
 % FISHREG - European Commission Joint Research Centre
-% March 2013
+% November 2013
 
 # Why R?
 

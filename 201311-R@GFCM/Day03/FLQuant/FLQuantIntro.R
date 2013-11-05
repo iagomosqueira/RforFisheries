@@ -3,14 +3,22 @@
 # Distributed under the GPL 2 or later
 
 #-------------------------------------------------------
+# Installing FLCore
+#-------------------------------------------------------
+# Start R or RStudio 
+
+# You should only need to do this once...
+
+install.packages(repos="http://flr-project.org/R", pkgs="FLCore")
+
+#-------------------------------------------------------
 # Looking inside an FLQuant
 #-------------------------------------------------------
 
 # The first practical covers the most basic class in the `FLCore` library: `FLQuant`.
 # `FLQuant`s are the building blocks of nearly all of the
 # objects used in FLR and consequently understanding them is important.
-# The following tutorial may not be very thrilling but it should serve
-# as a good foundation on which build.
+# The following tutorial should provide a good foundation on which build.
 
 # The `FLQuant` class is essentially a six-dimensional array used to store
 # data of one particular type (e.g. catch data).
@@ -21,7 +29,7 @@
 # To help us understand the structure of the `FLQuant` class we will
 # look at an example object.
 
-# Start R or RStudio and load the FLCore library
+# Load the FLCore library
 
 library(FLCore)
 
@@ -29,14 +37,17 @@ library(FLCore)
 
 data(ple4)
 
-# Don't worry about what `ple4` is for the moment (it is actually a
-# composite object of type `FLStock` and will be covered later).
+# Don't worry about what `ple4` is for the moment (it is actually an
+# object of the composite class `FLStock` and will be covered later.
+# ple4 is plaice in the North Sea.).
+
 # We can extract a single `FLQuant` from this object to use in our
 # exploration. Let's call it `fq`.
-# This contains the catch numbers of North Sea plaice, by age and year
 
 fq <- catch.n(ple4)
 
+# fq contains the catch numbers of North Sea plaice, by age and year.
+# Again, don't worry about the catch.n() function - all will become clear
 # To have a look at `fq` simply type:
 
 fq
@@ -51,27 +62,30 @@ fq
 class(fq)
 
 # Although the data in `fq` only appears to have two dimensions,
-# the data array of an `FLQuant` actually always has six dimensions.
+# an `FLQuant` actually always has six dimensions.
+# However, often one or more of them will be collapsed.
 
 dim(fq)
 
-# However, often one or more of them will be collapsed.
 # For example, the data stored in the `fq` object is only
 # disaggregated by two dimensions `age` and `year`. The remaining four
-# dimensions are collapsed and have length 1.
+# dimensions have length 1 (they are collapsed).
 
-# So our example FLQuant is essentially a two dimensional array: age by year
+# So our example FLQuant is essentially a two dimensional array: age by year.
 
 # What are the names of the dimensions?
 
 dimnames(fq)
 
-# The name of the first dimension of the data is not set and can be
-# altered by the user. For example, the name could be `age`, `length`,
-# `vesselclass` etc. In `fq` the first dimension is named `age`. Any
-# character string is accepted, but it should contain no spaces. When not
-# set it is usually refered to as the `quant` of the FLQuant. The
-# remaining five dimensions have fixed names. The six dimensions of an
+# The dimension names: year, unit, season, area and iter are fixed
+# The name of the first dimension of the data is not fixed.
+# It can be altered by the user.
+# For example, the name could be `age`, `length`, `vesselclass` etc.
+# In `fq` the first dimension is named `age`. Any character string
+# is accepted, but it should contain no spaces.
+# When not set it is usually refered to as the `quant` of the FLQuant.
+
+# The remaining five dimensions have fixed names. The six dimensions of an
 # FLQuant are, in this order:
 # 
 # -   user defined (or `quant`)
@@ -93,19 +107,32 @@ dimnames(fq)
 # This is a character string that stores information about the units of
 # measurement of the data.
 # The units of `fq` are currently set as “thousands”.
+# You can access and set the units using the units() function.
 
 units(fq)
 
 # Do not confuse units with the `unit` dimension.
+
 # Users are allowed to use any name they wish, but standard names are
 # encouraged as they allow for clear interpretation. 
 # 
 # -   Mass: `“kg”`, `“t”`
 # -   Length: `“cm”`, `“m”`
 
+
+#-------------------------------------------------------
+# Summarising an FLQuant
+#-------------------------------------------------------
+
 # There is a default plot for an FLQuant
 
 plot(fq)
+
+# FLR plots use the 'lattice' package
+# It is also possible to use 'ggplot2' using the 'ggplotFL' package
+# We will look at this later
+
+summary(fq)
 
 #-------------------------------------------------------
 # Accessing and manipulating data in an FLQuant
@@ -115,7 +142,8 @@ plot(fq)
 # That means we can use normal methods for accessing and manipulating
 # the contents of an FLQuant
 
-# Operations on an FLQuant almost always return an object that is also an FLQuant
+# Operations on an FLQuant almost always return an object that is
+# also an FLQuant
 
 # Let's remind ourselves of the dimensions of our FLQuant
 dim(fq)
@@ -126,9 +154,10 @@ dim(fq)
 fq[1:4,1:8,1,1,1,1]
 
 # The returned object is also an `FLQuant`.
-# Numbers can be ommited for any dimension that is not to be subset:
+# Numbers can be ommited for any dimension that is not to be subset
+# (note that this is not standard array behaviour and is special to FLR):
 
-fq[1:4,1:8,,,] 
+fq[1:4,1:8] 
 
 # An important consideration is the use of numbers or characters when
 # subsetting. The previous example used numbers to refer to the positions
@@ -136,20 +165,23 @@ fq[1:4,1:8,,,]
 # It is also possible to use characters. For example, if we were to select
 # the last five years from the `fq` object, we could do any of these:
 
-fq[,41:45,,,,]
-fq[,c('1997', '1998', '1999', '2000', '2001'),,,,]
-fq[,as.character(1997:2001),,,,]
+fq[,41:45]
+fq[,c('1997', '1998', '1999', '2000', '2001')]
+fq[,as.character(1997:2001)]
+
+# as.character() is a function to turn numeric values into characters.
 
 
 # To assign values to the data array the subsetting operator is also used.
-# For example, a selected part of an `FLQuant` can be modified at will:
+# For example, a selected part of an `FLQuant` can be modified:
 
-fq[,41:45,,,,] <- 99
-fq[,40:46,,,,]
-
+fq[,41:45] <- 99
+fq[,40:46]
 
 # Logical subsetting can also be used to reference particular elements in the array.
 # For example we can find the positions of the elements that are equal to 99
+# Note the use of 2 '='.
+# This means 'test for equality' and is different to the assignment operator
 
 fq == 99
 
@@ -160,22 +192,65 @@ fq[fq==99] <- 0
 fq
 
 #-------------------------------------------------------
-# Creating an FLQuant
+# Operators on FLQuant objects
 #-------------------------------------------------------
 
-# Possible to make an FLQuant in several ways
+# You can use normal arithmetic operators on FLQuant objects
+
+fq * 1000
+fq / 1000
+fq + 1000
+
+# These operations all return FLQuant objects
+fq2 <- fq + 1000
+class(fq2)
+
+# You can also use them on two FLQuant objects if their dimensions are the same
+
+fq + fq2
+
+# There are many other operators available.
+# Some that are useful are:
+# quantSums()
+# quantMeans()
+# quantVars()
+
+# These return the sum, mean and variance over the first dimension (remember the first dimension is called 'quant' by default).
+quantSums(fq)
+quantMeans(fq)
+quantVars(fq)
+
+#-------------------------------------------------------
+# Creating a new FLQuant
+#-------------------------------------------------------
+
+# It's possible to make an FLQuant in several ways
 # Using 'new'
 fq <- new("FLQuant")
+# It's empty and all dimensions are length 1
+
 # Passing in a dim argument
+fq <- FLQuant(dim=c(8,15))
+# This is equivalent to
 fq <- FLQuant(dim=c(8,15,1,1,1,1))
-fq <- FLQuant(dim=c(6,8,1,1,1,1), quant='length')
-fq <- FLQuant(dim=c(6,8,1,1,1,1), quant='age', units = "kg")
+# But we ignore dimensions with length 1
+
+# Set the name of the quant dimension
+fq <- FLQuant(dim=c(6,8), quant='length')
+# Set the name of the quant dimension and units
+fq <- FLQuant(dim=c(6,8), quant='age', units = "kg")
+
 # Passing in a dimnames argument
-fq <- FLQuant(dimnames=list(age = 1:8, year = 1998:2005, unit = 'unique', season = 'all', area = 'unique'))
+fq <- FLQuant(dimnames=list(age = 1:8, year = 1998:2005))
+
 # Can fill it up with something
-fq <- FLQuant(0.2, dim=c(8,15,1,1,1,1))
+fq <- FLQuant(0.2, dim=c(8,15))
 # Recycling the input vector
-fq <- FLQuant(1:8, dim=c(8,15,1,1,1,1))
+fq <- FLQuant(3:10, dim=c(8,15))
+
+#-------------------------------------------------------
+# Reading in data into a FLQuant
+#-------------------------------------------------------
 
 # Often we have our data outside R and we want to read it in
 # Here we look at how to read data into an FLQuant
@@ -183,59 +258,71 @@ fq <- FLQuant(1:8, dim=c(8,15,1,1,1,1))
 # This is the estimated stock abundance of North Sea plaice by age and year
 # Load this into Excel or OpenOffice or some other spreadsheet
 # By saving your data as a *.csv file you can then import it easily into R
-# Use the 'read.csv' function
 
-sn <- read.csv("stock_n.csv", row.names = 1)
-sn
+# read.table and its friends
+?read.table
 
-# If your data is seperated by other seperators (;, " ", etc.) you can use the 'sep' argument
-# See ?read.csv for more details
+# Key options to look out for:
+# file (obviously)
+# header
+# sep
+# row.names
+# col.names
 
-# The row.names argument tells R which column to use as the row names
+# Save your data as a *.csv file (comma separated file)
+# Example file in /Data/catch_numbers.csv
+# Note that we have row and column names (ages and years)
 
-# There is a small issue of the year names.
-# You can see that R has added an X in front of the numbers
+# Read this in using read.table() with default options
+catch_n <- read.table("catch_numbers.csv")
+catch_n
 
-colnames(sn)
+# Looks terrible
+# what just happened?
+# The separator in our file is a comma , so we need to specify that
+catch_n <- read.table("catch_numbers.csv", sep=',')
 
-# This doesn't matter because we won't actually be using those columns names
+# Better but the column and row names have been included as data
+# We can try to fix this using the header and row.names options
+catch_n <- read.table("catch_numbers.csv", header=TRUE, sep=',')
 
-# What kind of object is sn?
+# Specify which column has the row names 
+catch_n <- read.table("catch_numbers.csv", header=TRUE, sep=',', row.names=1)
 
-class(sn)
+# The column names are ugly (with the Xs) but that is OK for now
+# Can use read.csv() instead - same as read.table() but different default options
+catch_n <- read.csv("catch_numbers.csv",row=1)
 
-# It's a dataframe
-# We want a matrix so we use 'as()'
-
-sn <- as(sn,'matrix')
-class(sn)
-
-# We can use to make an FLQuant
-# But we need to specify the dimnames
-
-sn_fq <- FLQuant(sn, dimnames = list(age = 1:10, year = 1957:2008), quant='age')
-class(sn_fq)
-plot(sn_fq)
+# We have read in the data as a data.frame
+class(catch_n)
+# There is an FLQuant constructor that uses a data.frame, but here our data.frame is not set up the right way
+# Instead we can convert the object to a matrix
+catch_n_matrix <- as.matrix(catch_n)
+catch_n_matrix
+# We need to specify the dimnames
+catch_n_flq <- FLQuant(catch_n_matrix, dimnames=list(age=1:7, year = 1957:2011))
+catch_n_flq
 
 # If you get get your data into R you can get it into an FLQuant.
 # If you get your data into an FLQuant you get it into any FLR object!
 
 #-------------------------------------------------------
-# Operators on FLQuant objects
+# Altering the size of an FLQuant
 #-------------------------------------------------------
 
-# You use normal arithmetic operators on FLQuant objects
+# The size of an FLQuant can be changed
+# This can be necessary when dealing with multiple FLQuant objects that come from different sources
 
-sn_fq * 1000
-sn_fq / 1000
-sn_fq + 1000
+# window() can be used to shrink or expand along the year dimension
+dimnames(catch_n_flq)
+# shrink
+window(catch_n_flq, start=2006, end=2008)
+# grow - new years are filled with NA
+window(catch_n_flq, start=2006, end=2013)
 
-# You can also use them on two FLQuant objects if their dimensions are the same
-
-sn_fq + sn_fq
-
-# These operations all return FLQuant objects
-
+# trim() can only be used to shrink, but can work along any dimension
+trim(catch_n_flq, age = 1:4)
+trim(catch_n_flq, year = 2007:2009) # Note that for year, the as.character() conversion happens implicitly
 
 #-------------------------------------------------------
 # Bonus section (if really keen)
@@ -243,15 +330,6 @@ sn_fq + sn_fq
 
 # Refresh fq
 fq <- catch.n(ple4)
-
-# window 
-# Selection and extension of an `FLQuant` object along the `year`
-# dimension can be carried out with the `window()` method.
-# This can also be used for extending the year range of the FLQuant.
-# Note the 'start' and 'end' arguments interpret the values as character strings.
-
-window(fq, start=2006, end=2008)
-window(fq, start=2006, end=2010)
 
 # Checking and changing quant and units
 # Both the name of the first dimension (the quant) and the content of the
@@ -286,27 +364,9 @@ apply(fq, c(1,3), mean)
 
 # Using `apply` with `FLQuant` objects is intended to behave as using
 # `apply` with standard R arrays.
-# Many of the common `apply` methods have been defined for `FLQuant`
-# objects including `quantSums`, and `quantMeans`.
-# It should be noted that these `quantSums` methods are generally faster than apply.
-# However, apply is more flexible in defining the dimensions over which
-# functions will be applied.
 
-quantSums(fq)
-quantMeans(fq)
 
-# Inspecting FLQuants
-
-# Several methods exist for inspecting `FLQuant` objects.
-
-# summary
-
-# This method outputs to screen a brief summary of an object's dimensions
-# as a named list:
-
-summary(fq)
-
-### show
+# show
 
 # The show method controls the output obtained when an object name is
 # invoked directly at the prompt. It is the simplest method for visually

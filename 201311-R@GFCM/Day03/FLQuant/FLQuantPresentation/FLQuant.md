@@ -6,9 +6,9 @@
 
 The building block of FLR
 
-Used to store your data (catches, abundances, etc)
+Used to store one type of data (catches, abundances, etc)
 
-All other FLR classes (FLStock, FLIndex) etc. are made from collections of FLQuant objects
+All other FLR classes (**FLStock**, **FLIndex**) etc. are made from collections of FLQuant objects
 
 Fortunately, they are simple
 

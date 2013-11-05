@@ -83,7 +83,32 @@ box()
 
 
 ############################################################################################################################
+#SOLUTIONS
+# 1 Make a map of the ozone data with margins larger 1 Degree more than the actual data limits in order to get a better map
+# (hint use min and max) and make state contours blue.
 
+map("state", xlim = c(min(ozone$x)-1,max(ozone$x)+1), ylim = c(min(ozone$y)-1,max(ozone$y)+1), fill=FALSE, col="blue")
+symbols(ozone$x, ozone$y, circles=ozone$median/500, add=T,inches=FALSE, fg="red")
+box()
+# 2 plot squared symbols for the ozone density
+
+symbols(ozone$x, ozone$y, squares=ozone$median/500, add=T,inches=FALSE, fg="red")
+
+# 3 fill the squares with a green color and add map axes
+
+symbols(ozone$x, ozone$y, squares=ozone$median/500, add=T,inches=FALSE, fg="red", bg="green")
+map.axes()
+
+# 4 Add a legend where the size of the bubbles as a scale, hints use pt.cex in legend command and define few values of ozone to
+
+map("state", xlim = c(min(ozone$x)-1,max(ozone$x)+1), ylim = c(min(ozone$y)-1,max(ozone$y)+1), fill=FALSE, col="blue")
+symbols(ozone$x, ozone$y, circles=ozone$median*0.005, add=T,inches=FALSE, fg="red")
+range(ozone$median)# 34 to 100
+scale<-c(34,60,100)
+legend("topleft", legend=paste(scale), text.col="red", pch=1, pt.cex=ozone$median*0.5, col="red", bty="n", title="Ozone Density", cex=0.5)
+map.axes()
+
+##################################################################
 
 # Introducing ggmap
 

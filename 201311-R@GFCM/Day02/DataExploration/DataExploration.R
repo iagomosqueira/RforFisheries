@@ -66,13 +66,16 @@ lines(x2[which], y2[which], lwd = 4, col = "red")
 
 # first we will read in some data...
 
-?read.csv
+# set up a working directory
+
+# and download the data files
 
 # the data file is on our github page - the address of the file is
 # https://github.com/iagomosqueira/RforFisheries/tree/master/201311-R%40GFCM
 
+?read.csv
+
 catch_wt <- read.csv("catch_wt.csv")
-catch_n <- read.csv("catch_n.csv")
 
 str(catch_wt)
 
@@ -149,7 +152,7 @@ lines(lowess(year, age1), col = "blue")
 
 
 #######################################
-# working with data frames
+# working with data frames introduction
 #######################################
 
 # The simplest way to look at your data is to print it
@@ -159,13 +162,98 @@ catch_wt
 str(catch_wt)
 
 # it is a data.frame
-
 head(catch_wt)
 
+# Accessing the elements
+names(catch_wt)
 
-# let's convert it to a matrix
-sn.mat <- as.matrix(sn)
-sn.mat
+# the $ operator
+
+catch_wt $ age1
+catch_wt $ age2
+
+# the [[ operator
+
+catch_wt[["age1"]]
+catch_wt[["age2"]]
+
+
+# or
+
+catch_wt[[1]]
+catch_wt[[2]]
+
+
+#######################################
+# Using loops
+#######################################
+
+for (i in c(1,2,3)) {
+  print(i)
+}
+
+
+for (i in c("hello", "ciao", "bonjour")) {
+  print(i)
+}
+
+
+for (i in 1:4) {
+  mean_wt <- mean(catch_wt[[i]])
+  print(mean_wt)
+}
+
+
+# lets do something more useful
+
+# plotting with two vectors
+year <- 1957:2008
+
+for (i in 1:4) {
+  weight <- catch_wt[[i]]
+  plot(year, weight, type = "l") 
+}
+
+# use par(mfrow = c(2,2))
+
+
+## exercise
+
+# plot mean weight for ages 5, 6, 7, 8
+# add in useful titles to each plot
+# add in a lowess smooth of the data to each plot
+
+
+#######################################
+# brief introduction to functions
+#######################################
+
+# lets have a look at another data set
+catch_n <- read.csv("catch_n.csv")
+
+# again it comes in as a data.frame
+str(catch_n)
+
+# sometimes a useful thing to look at is the proportion of the catch
+
+# numbers at age 1 / total numbers caught,  by year
+
+catch_n $ age.1 / (catch_n $ age.1 + catch_n $ age.2 + catch_n $ age.3)
+
+# there must be a better way!
+catch_total <- rep(0, length(catch_n $ age.1))
+
+# lets to a loop and keep a running total
+for (i in names(catch_n)) {
+  catch_total <- catch_total + catch_n[[i]]
+}
+
+#  So now the proportion at age 1 is:
+catch_n $ age.1 / catch_total
+
+#  So now the proportion at age 2 is:
+catch_n $ age.2 / catch_total
+
 
 
 

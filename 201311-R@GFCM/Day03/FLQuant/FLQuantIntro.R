@@ -9,7 +9,7 @@
 
 # You should only need to do this once...
 
-install.packages(repos="http://flr-project.org/R", pkgs="FLCore")
+install.packages(repos="http://flr-project.org/Rdevel", pkgs="FLCore")
 
 #-------------------------------------------------------
 # Looking inside an FLQuant

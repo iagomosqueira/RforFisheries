@@ -27,6 +27,6 @@ Plus `units`
 
 # Installing FLR
 
-install.packages(repos="htpp://flr-project.org/R")
+install.packages(repos="htpp://flr-project.org/Rdevel")
 
 

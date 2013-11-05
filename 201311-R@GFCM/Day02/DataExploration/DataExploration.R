@@ -6,16 +6,100 @@
 # Exploring data
 #-------------------------------------------------------
 
-# This practical looks at the basic data types you have covered so far
-# - vector
-# - matrix
-# - data.frame
-# and shows how you can look at their contents
-
-
 # first we will read in some data...
-sn <- read.csv("stock_n.csv", row.names = 1)
-sn <- as.matrix(sn)
+
+# the data file is on our github page - the address of the file is
+# https://github.com/iagomosqueira/RforFisheries/tree/master/201311-R%40GFCM
+
+catch_wt <- read.csv("catch_wt.csv")
+catch_n <- read.csv("catch_n.csv")
+
+str(catch_wt)
+
+head(catch_wt)
+
+tail(catch_wt)
+
+#  Lets take one column
+age1 <- sn $ age1
+
+# the simplest way is to print it
+age1
+# or
+print(age1)
+
+# look at the start and end of the data
+head(age1)
+
+
+tail(age1)
+
+
+# okay, but what is it?
+str(age1)
+
+# so we can do numerical summaries
+
+# the sum of the data 
+sum(age1)
+
+# the number of values in the vector
+length(age1)
+
+# so we can now calculate the mean
+sum(age1) / length(age1)
+
+# or more simply
+mean(age1)
+
+# the sample standard deviation
+sd(age1)
+
+# or written out in full
+sqrt( sum( (age1 - mean(age1))^2 ) / (length(age1) - 1) )
+
+# so shortcuts are nice!
+
+
+# there are lots of summaries of data vectors
+median(age1)
+
+quantile(age1, .5)
+
+quantile(age1, c(.25, .75))
+
+min(age1)
+
+max(age1)
+
+summary(age1)
+
+signif(mean(age1), 3)
+
+
+# plotting the data is also useful
+plot(age1)
+
+# to get a line plot
+plot(age1, type = "l")
+
+abline(h = median(age1), col = "red")
+
+abline(h = quantile(age1, c(.05, .95)), lty = 2)
+
+
+# plotting with two vectors
+
+# lets get catches at age 2
+age2 <- sn $ X2
+
+# plot age 2 agains age 1
+plot(age1, age2)
+
+#######################################
+# working with matrices
+#######################################
+
 
 # The simplest way to look at your data is to print it
 sn

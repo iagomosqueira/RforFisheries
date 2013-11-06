@@ -70,6 +70,6 @@ ggplot(ple[ple$slot=="catch.n",], aes(x=year, y=data, color=age))+geom_point(alp
 
 # 3 plot using faceting so that each horizontal panel represents one age
 
-# 4 
+# 4 plot Fbar of ple4 
 
 

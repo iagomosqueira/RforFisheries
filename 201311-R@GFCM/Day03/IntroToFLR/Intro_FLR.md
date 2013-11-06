@@ -47,7 +47,7 @@ In detail, FLR aims to facilitate and promote research about:
 
 # FLR development
 
-FLR is a **collaborative development project**, where distinct scientists that constitute *the FLR Core Team* work simultaneously on code, documentation, etc.
+FLR is a **collaborative development project**, where scientists that constitute the *FLR Core Team* work simultaneously on code, documentation, etc.
 
 # Really, what is FLR?
 
@@ -69,8 +69,8 @@ FLR is a **collaborative development project**, where distinct scientists that c
 # Design principles
 
 * 'Classes' to represent different elements of fisheries systems
-* 'physical' objects (e.g. FLStock class represents a fish stock)
-* ’methodological’ objects (e.g. FLBRP class containing methods to calculate BRP)
+    * 'physical' elements (e.g. **FLStock** class represents a fish stock)
+    * ’methodological’ elements (e.g. **FLBRP** class containing methods to calculate BRP)
 * Link objects to create simulations - Lego blocks (MSE example)
 * Learning curve: trade off between flexibility and simplicity (no black boxes and no handle turning)
 

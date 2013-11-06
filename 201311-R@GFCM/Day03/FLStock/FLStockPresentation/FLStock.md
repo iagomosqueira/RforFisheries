@@ -4,7 +4,9 @@
 
 # FLStock
 
-Represents the population dynamics of a fish stock.
+A class that represents the population dynamics of a fish stock.
+
+Contains:
 
 * Fisheries information:
     * Catches, landings, discards (numbers, weights)
@@ -27,7 +29,7 @@ An **FLStock** is made up of **FLQuant** objects
 
 All FLQuant slots are the same size
 
-17 of them!
+17 of them
 
 * **catch**, **catch.n**, **catch.wt**
 * **landings**, **landings.n**, **landings.wt**
@@ -35,7 +37,6 @@ All FLQuant slots are the same size
 * **stock**, **stock.n**, **stock.wt**
 * **m**, **mat**, **harvest**
 * **harvest.spwn**, **m.spwn** 
-
 
 
 

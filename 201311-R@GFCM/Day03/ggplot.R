@@ -1,4 +1,8 @@
-PLotting in GGPLOT
+#PLotting in GGPLOT
+library(ggplot2)
+library(FLCore)
+
+data(ple4)
 
 # Lookup the list of commands online here:
 #   http://docs.ggplot2.org/current/

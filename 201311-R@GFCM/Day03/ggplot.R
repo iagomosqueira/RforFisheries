@@ -68,12 +68,15 @@ ggplot(ple[ple$slot=="catch.n",], aes(x=year, y=data, color=age))+geom_point(alp
 #########################################################################################
 # Assignment
 
+#########################################################################################
+# Assignment
+
 # 1 create a ggplot of the discard numbers where each age has a different symbol 
+one<-ggplot(ple[ple$slot=="discards.n",], aes(x=year, y=data, shape= age))+geom_point(aes(x=year, y=data, shape= as.numeric(age)))+scale_shape_identity()
 
 # 2 redo the same with a smoother in each age class
-
+two<-one + stat_smooth()
+two
 # 3 plot using faceting so that each horizontal panel represents one age
-
-# 4 plot Fbar of ple4 
-
+two + facet_grid(age~., scales="free_y")
 

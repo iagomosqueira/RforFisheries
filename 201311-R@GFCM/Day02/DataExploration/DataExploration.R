@@ -35,7 +35,11 @@ plot(x, y, col = "blue", lty = 2, type = "l")
 # add another line
 x2 <- seq(a, b, length = 100)
 y2 <- (x2 - 1.5)^2
+
 lines(x2, y2)
+
+#
+x > 1.5
 
 # finally subset
 which <- x2 > 1.5
@@ -45,21 +49,42 @@ y2[which]
 
 # to see this
 plot(x2, y2, type = "l")
-abline(v = 1.5, lty = 2)
+
 lines(x2[which], y2[which], lwd = 4, col = "red")
+
+
+lty - line type
+lwd - line width
+col - colour
+pty - point type
+
+
+
 
 # Excercise
 
 # 1. make a vector than runs from 1990 to 2010 called "year"
 
+year <- 1990:2010
+year <- seq(1990, 2010)
+
 # 2. calculate (year - 2000)^2, and store this in a vector called "catch"
 
+catch <- (year - 2000)^2
+
 # 3. make another vector of random normal noise with mean = 0 and sd = 10 the same length as catch.
-# call this "noise"
+# call this "noise"  using
+#  rnorm()  - ?rnorm
 
-# 4. a) make a scatter plot of catch + noise against year
-#    b) add a "red" line for catch against year
+noise <- rnorm(length(catch), mean = 0, sd = 10)
 
+# 4. a) make a scatter plot of year against catch + noise
+#    b) add a "red" line for year against catch
+
+obs.catch <- catch + noise
+
+plot(year, obs.catch)
+lines(year, catch, col = "red")
 
 
 # Lets now turn to some fisheries data
@@ -75,11 +100,17 @@ lines(x2[which], y2[which], lwd = 4, col = "red")
 
 ?read.csv
 
+# make sure the file name is correct!
+# some of you may have "catch_wt.txt"
 catch_wt <- read.csv("catch_wt.csv")
+
+catch_wt <- read.csv("catch_wt.txt")
 
 str(catch_wt)
 
-head(catch_wt)
+x <- 1
+
+head(catch_wt, n = 2)
 
 tail(catch_wt)
 
@@ -98,6 +129,7 @@ sum(age1)
 length(age1)
 
 # so we can now calculate the mean
+# 1/n * sum(x)
 sum(age1) / length(age1)
 
 # or more simply
@@ -105,12 +137,7 @@ mean(age1)
 
 # the sample standard deviation
 sd(age1)
-
-# or written out in full
-sqrt( sum( (age1 - mean(age1))^2 ) / (length(age1) - 1) )
-
-# shortcuts are nice!
-
+var(age1)
 
 # there are lots of summaries of data vectors
 median(age1)
@@ -123,9 +150,10 @@ min(age1)
 
 max(age1)
 
+
 summary(age1)
 
-signif(mean(age1), 3)
+summary(catch_wt[1:2])
 
 
 # plotting the data is also useful
@@ -144,8 +172,6 @@ year <- 1957:2008
 
 # plot age 2 agains age 1
 plot(year, age1, type = "l", main = "mean weight at age 1", lwd = 2)
-abline(h = median(age1), col = "red")
-abline(h = quantile(age1, c(.05, .95)), lty = 2)
 
 # try a simple data smoother
 lines(lowess(year, age1), col = "blue")
@@ -175,8 +201,7 @@ catch_wt $ age2
 # the [[ operator
 
 catch_wt[["age1"]]
-catch_wt[["age2"]]
-
+catch_wt[["age10"]]
 
 # or
 
@@ -198,6 +223,7 @@ for (i in c("hello", "ciao", "bonjour")) {
 }
 
 
+
 for (i in 1:4) {
   mean_wt <- mean(catch_wt[[i]])
   print(mean_wt)
@@ -205,6 +231,9 @@ for (i in 1:4) {
 
 
 # lets do something more useful
+
+# creates a plot with 4 figures
+par(mfrow = c(2,2))
 
 # plotting with two vectors
 year <- 1957:2008
@@ -219,9 +248,25 @@ for (i in 1:4) {
 
 ## exercise
 
-# plot mean weight for ages 5, 6, 7, 8
-# add in useful titles to each plot
-# add in a lowess smooth of the data to each plot
+# 1. plot mean weight for ages 5, 6, 7, 8
+
+# creates a plot with 4 figures
+par(mfrow = c(2,2))
+
+# plotting with two vectors
+year <- 1957:2008
+
+for (i in 5:8) {
+  weight <- catch_wt[[ paste0("age", i) ]]
+  plot(year, weight, type = "l", 
+        main = paste("mean weight age", i) )
+  lines(lowess(year, weight), col = "blue")
+}
+
+# hint - use paste to build up names
+
+# 2. a) add in useful titles to each plot
+#    b) add in a lowess smooth of the data to each plot
 
 
 #######################################

@@ -254,7 +254,7 @@ fq <- FLQuant(3:10, dim=c(8,15))
 
 # Often we have our data outside R and we want to read it in
 # Here we look at how to read data into an FLQuant
-# You should be able to see the file 'stock_n.csv'
+# You should be able to see the file 'catch_numbers.csv'
 # This is the estimated stock abundance of North Sea plaice by age and year
 # Load this into Excel or OpenOffice or some other spreadsheet
 # By saving your data as a *.csv file you can then import it easily into R

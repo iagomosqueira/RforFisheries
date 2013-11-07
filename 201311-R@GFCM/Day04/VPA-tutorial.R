@@ -10,32 +10,144 @@
 #====================================================================
 library(FLAssess)
 data(ple4)
+
+
+# just to be clean we will remove the values we would not know
 harvest(ple4)[] <- NA
 stock.n(ple4)[] <- NA
 
+# lets check it is empty
+harvest(ple4)
 
 #--------------------------------------------------------------------
+# before we run a VPA we need to set up
 # set final year and final age F values
 #--------------------------------------------------------------------
-harvest(ple4)[ac(range(ple4)["max"]), ] <- 1
-harvest(ple4)[, ac(range(ple4)["maxyear"])] <- 1
+
+# set F at the oldest age to 1
+harvest(ple4)[as.character(range(ple4)["max"]), ] <- 1
+harvest(ple4)
+
+# set F at the final year to 1
+harvest(ple4)[, as.character(range(ple4)["maxyear"])] <- 1
+harvest(ple4)
+
+
+# In FLAssess we have the function VPA()
+# the help file is found usinf
+?VPA
 
 #--------------------------------------------------------------------
-# run
+# run a VPA
 #--------------------------------------------------------------------
-ple4.vpa <- VPA(ple4, fratio = 1, fit.plusgroup = TRUE)
-ple4.new <- ple4 + ple4.vpa
-plot(ple4.new)
+ple4.vpa <- VPA(ple4)
+
+# what is ple4.vpa
+class(ple4.vpa)
+# it is an FLVPA class
+
+# in FLR, a stock assessment method returns a something that
+# is a stock assessment object.  So VPA returns an FLVPA object
+# and XSA returns an FLXSA object.
+# The common thing is that to get the results out of a stock assessment
+# you add the assessment to the stock:
+#  fitted.stock = stock + assessment
+#
+
+ple4.fitted <- ple4 + ple4.vpa
+plot(ple4.fitted)
+
+# we can also look at the stock.n and harvest slots in more detail
+stock.n(ple4.fitted)
+
+harvest(ple4.fitted)
+
+# and again we can use ggplot to visualise things
+harvest.df <- as.data.frame(harvest(ple4.fitted))
+ggplot(harvest.df, aes(x = year, y = data)) + geom_line() + facet_wrap(~age)
+
+
+
+# one thing to be wary of here is that we have fixed the values of F
+# in the final year and oldest age to 1
+
+# it is probably a good idea to test the sensitivity of these assumptions
+# and to do this it could be a good idea to write a few lines of code that do the job
+# and repeat them.
+# When you have code that is repeated often it is a good idea to
+# combine it into one job or function
+
+
+myfunc <- function(x) {
+  y <- x ^ 2
+  return(y)
+}
+
+# pass a number to the function
+myfunc(1)
+myfunc(x = 2)
+
+value <- 2
+myfunc(value)
+
+
+
+myfunc <- function(x, power) {
+  y <- x ^ power
+  return(y)
+}
+
+# pass in numbers - getting them in the right order!
+myfunc(2, 3)
+
+# note this is not the same
+myfunc(3, 2)
+
+# but this is
+myfunc(power = 2, x = 3)
+
+
+# so to summarise,
+# functions are a very useful way to put a task into
+# the one place... a bit like a macro in Excel
+# But in R we can pass in different arguements.
+# functions are very flexible tools.
+
+
 
 #--------------------------------------------------------------------
 # sensitivity to final values
 #--------------------------------------------------------------------
 
-runSensitivity <- function(stock, val) {
-  harvest(stock)[ac(range(stock)["max"]), ] <- val
-  harvest(stock)[, ac(range(stock)["maxyear"])] <- val
-  stock + VPA(stock, fratio = 1, fit.plusgroup = TRUE)
+# lets write a function that takes in a stock and
+# a value for the final year F
+
+runSensitivity <- function(stock, val) 
+{
+  harvest(stock)[as.character(range(stock)["max"]), ] <- val
+  harvest(stock)[, as.character(range(stock)["maxyear"])] <- val
+  fitted.stock <- stock + VPA(stock)
+
+  return(fitted.stock)
 }
+
+# lets test it
+stk1 <- runSensitivity(ple4, 1)
+plot(stk1)
+
+stk2 <- runSensitivity(ple4, 1.5)
+plot(stk2)
+
+# A FLStocks object is a collection of FLStocks
+stocks <- FLStocks(stk1, stk2)
+
+# and we can plot it
+plot(stocks)
+
+# so it is a useful way to combine different stocks and even stock assessmnets
+
+
+# but can we automate this process
 
 stock.list <- list()
 finals <- seq(0.5,1.5,0.1)

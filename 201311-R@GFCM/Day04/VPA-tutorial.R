@@ -184,17 +184,43 @@ plot(window(stocks, start = 2000))
 
 # 1. write a function to do a VPA assessment which has a different value for final year F, as it does to Final age F.
 
-# 2. run a sensitivity when final year F is 1 and final age F goes from 0.5 to 1.5 in steps of 0.1
+runSensitivity2 <- function(stock, Fyear, Fage) 
+{
+  harvest(stock)[as.character(range(stock)["max"]), ] <- Fage
+  harvest(stock)[, as.character(range(stock)["maxyear"])] <- Fyear
+  fitted.stock <- stock + VPA(stock)
+  
+  return(fitted.stock)
+}
+
+test <- runSensitivity2(stock = ple4, Fyear = 1, Fage = 2)
+
+harvest(test)
+
+# 2. run a sensitivity when final year F is always 1 and final age F goes from 0.5 to 1.5 in steps of 0.1
+
+stock.list <- list()
+
+finalFs <- seq(0.5, 1.5, by = 0.1)
+for (i in seq(along = finalFs)) {
+  stock.list[[i]] <- runSensitivity2(ple4, Fage = finalFs[i], Fyear = 1)
+}
 
 # 3. plot the results as an FLStocks for the years 2001 to 2008
 
+stocks <- FLStocks(stock.list)
 
+plot(window(stocks, start = 2001, end = 2008))
 
 
 
 #====================================================================
 # XSA
 #====================================================================
+
+install.packages("FLXSA", repos = "http://flr-project.org/Rdevel")
+
+
 
 library(FLXSA)
 data(ple4.indices)
@@ -204,6 +230,8 @@ data(ple4.indices)
 
 plot(ple4.indices)
 
+plot(ple4.indices[["SNS"]])
+
 plot(ple4.indices[["SNS"]], type="ts")
 
 
@@ -211,7 +239,10 @@ plot(ple4.indices[["SNS"]], type="ts")
 # Select tuning fleets
 #--------------------------------------------------------------------
 
-ple4.tun.sel <- FLIndices(trim(ple4.indices[[1]],age=2:8), ple4.indices[[2]], trim(ple4.indices[[3]], year=1997:2003))
+ple4.tun.sel <- FLIndices(trim(ple4.indices[[1]], age=2:8),
+                          ple4.indices[[2]], 
+                          trim(ple4.indices[[3]], year=1997:2003))
+
 names(ple4.tun.sel) <- names(ple4.indices)
 
 #--------------------------------------------------------------------
@@ -233,7 +264,7 @@ xsa.control <- FLXSA.control(tol = 1e-09, maxit = 30, min.nse = 0.3, fse = 2.0, 
 #--------------------------------------------------------------------
 # run
 #--------------------------------------------------------------------
-FLXSA method takes three arguments: FLStock object (catch-at-age matrix), FLIndices (tuning indices), and an FLXSA.control object (parameter settings for XSA)
+# FLXSA method takes three arguments: FLStock object (catch-at-age matrix), FLIndices (tuning indices), and an FLXSA.control object (parameter settings for XSA)
 
 xsa.results <- FLXSA(ple4.sel, ple4.tun.sel, xsa.control)
 
@@ -247,6 +278,7 @@ diagnostics(xsa.results)
 # accessor is index.res, but there are no names so need to reassign them
 
 names(index.res(xsa.results)) <- lapply(ple4.tun.sel,'name')
+
 bubbles(age~year|qname, data=mcf(index.res(xsa.results)))
 
 #--------------------------------------------------------------------
@@ -274,5 +306,18 @@ plot(ple4.retro)
 # Exercise on XSA
 #====================================================================
 
+# 1. Run your own XSA on ple4 assess the levels in SSB and F 
 
-#Run your own XSA on ple4 assess the levels in SSB and F 
+my.control <- FLXSA.control(fse = 1.0)
+
+xsa.results <- FLXSA(ple4.sel, ple4.tun.sel, xsa.control)
+ple4.xsa.fit <- ple4.sel + xsa.results
+
+plot(ple4.xsa.fit)
+
+# 2. using FLStocks() compare the results from VPA and XSA by comparing a stock fitted with VPA to a stock fitted with XSA
+
+# NOTE - make sure you have the correct runSensitivity function
+ple4.vpa.fit <- runSensitivity(ple4, val = 1)
+
+plot(FLStocks(ple4.xsa.fit, ple4.vpa.fit), col = c("red","blue"))

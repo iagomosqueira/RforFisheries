@@ -8,7 +8,14 @@
 #====================================================================
 # VPA
 #====================================================================
+
+install.packages("FLAssess", repos = "http://flr-project.org/Rdevel")
+
+install.packages("FLash", repos = "http://flr-project.org/Rdevel")
+
+
 library(FLAssess)
+
 data(ple4)
 
 
@@ -32,6 +39,8 @@ harvest(ple4)
 harvest(ple4)[, as.character(range(ple4)["maxyear"])] <- 1
 harvest(ple4)
 
+#
+m(ple4)
 
 # In FLAssess we have the function VPA()
 # the help file is found usinf
@@ -64,6 +73,7 @@ harvest(ple4.fitted)
 
 # and again we can use ggplot to visualise things
 harvest.df <- as.data.frame(harvest(ple4.fitted))
+
 ggplot(harvest.df, aes(x = year, y = data)) + geom_line() + facet_wrap(~age)
 
 
@@ -85,6 +95,7 @@ myfunc <- function(x) {
 
 # pass a number to the function
 myfunc(1)
+
 myfunc(x = 2)
 
 value <- 2
@@ -97,6 +108,7 @@ myfunc <- function(x, power) {
   return(y)
 }
 
+
 # pass in numbers - getting them in the right order!
 myfunc(2, 3)
 
@@ -104,8 +116,9 @@ myfunc(2, 3)
 myfunc(3, 2)
 
 # but this is
-myfunc(power = 2, x = 3)
+myfunc(power = 3, x = 2)
 
+myfunc(x = 2)
 
 # so to summarise,
 # functions are a very useful way to put a task into
@@ -127,7 +140,7 @@ runSensitivity <- function(stock, val)
   harvest(stock)[as.character(range(stock)["max"]), ] <- val
   harvest(stock)[, as.character(range(stock)["maxyear"])] <- val
   fitted.stock <- stock + VPA(stock)
-
+  
   return(fitted.stock)
 }
 
@@ -142,7 +155,9 @@ plot(stk2)
 stocks <- FLStocks(stk1, stk2)
 
 # and we can plot it
-plot(stocks)
+stocks.zoom <- window(stocks, start = 2000)
+
+plot(stocks.zoom)
 
 # so it is a useful way to combine different stocks and even stock assessmnets
 
@@ -150,13 +165,31 @@ plot(stocks)
 # but can we automate this process
 
 stock.list <- list()
-finals <- seq(0.5,1.5,0.1)
+
+finals <- seq(0.5, 1.5, by = 0.1)
 for (i in 1:length(finals)) {
   stock.list[[i]] <- runSensitivity(ple4, finals[i])
 }
 
+length(stock.list)
+
+str(stock.list, 2)
+
+
 stocks <- FLStocks(stock.list)
+
 plot(window(stocks, start = 2000))
+
+# Excercise,
+
+# 1. write a function to do a VPA assessment which has a different value for final year F, as it does to Final age F.
+
+# 2. run a sensitivity when final year F is 1 and final age F goes from 0.5 to 1.5 in steps of 0.1
+
+# 3. plot the results as an FLStocks for the years 2001 to 2008
+
+
+
 
 
 #====================================================================
@@ -228,7 +261,7 @@ plot(ple4.sel)
 # what does it mean?
 retro.years <- 2004:2008
 ple4.retro <- tapply(retro.years, 1:length(retro.years), function(x){
-	window(ple4,end=x)+FLXSA(window(ple4,end=x),ple4.indices)
+  window(ple4,end=x)+FLXSA(window(ple4,end=x),ple4.indices)
 })
 
 # coerce into FLStocks object
@@ -240,8 +273,6 @@ plot(ple4.retro)
 #====================================================================
 # Exercise on XSA
 #====================================================================
-library(FLa4a)
 
 
 #Run your own XSA on ple4 assess the levels in SSB and F 
-

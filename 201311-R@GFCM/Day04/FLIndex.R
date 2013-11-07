@@ -26,7 +26,6 @@ class(ple4.index)
 # FLIndex demo
 #-----------------------------------------------------
 
-# Why do we need an FLStock?
 # THe most important bits are the index (CPUE) values
 
 index(ple4.index)
@@ -64,7 +63,7 @@ summary(ple4.index)
 # (remember an FLQuant has 6 dimensions)
 # An FLIndex is really just a collection of FLQuant objects
 # Each of these FLQuant objects is known as a 'slot'
-# An FLStock has 12 slots
+# An FLIndex has 12 slots
 # 7 of them are FLQuant objects
 # + name (character string)
 # + desc (character string)
@@ -110,7 +109,7 @@ range(ple4.index)
 # Here fishing takes place between 0.66 and 0.75.
 # Let's change that so the survey took place in the first quarter of the year
 range(ple4.index)["startf"] <- 0
-range(ple4.index)["endf"] <- 0.25
+range(ple4.index)["endf"] <- 1
 range(ple4.index)
 
 # We have already seen plot() and summary()
@@ -150,11 +149,11 @@ range(bigple4)
 index(bigple4)
 
 # Can also use subsetting with []
-temp <- ple4.index[,as.character(1998:2001)]
+temp <- ple4.index[,as.character(2000:2008)]
 summary(temp)
 
 # summary(propagate(ple4, 10)) # Ignore for now
-summary(trim(ple4, year=1990:1999))
+summary(trim(ple4.index, year=1990:1999))
 
 
 
@@ -178,8 +177,8 @@ cpue
 # and passing in the FLQuant and other slots (where available)
 
 indx <- FLIndex(index = cpue,
-               name = "My survey",
-               desc = "A survey I made")
+                name = "My survey",
+                desc = "A survey I made")
 summary(indx)
 
 # We have created an FLStock with the same dimensions as the FLQuant we passed in
@@ -205,4 +204,3 @@ summary(indx)
 ggplot(as.data.frame(index(indx)), 
        aes(x = year - age, y = log(data), color = factor(age))) + 
   geom_line()
-

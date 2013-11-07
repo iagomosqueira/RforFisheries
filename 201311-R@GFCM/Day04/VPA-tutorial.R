@@ -241,54 +241,7 @@ plot(ple4.retro)
 # Exercise on XSA
 #====================================================================
 library(FLa4a)
-data(hake)
-
-#Run your own XSA on hake, assess the levels in SSB and F and verify the retrospective patterns
 
 
+#Run your own XSA on ple4 assess the levels in SSB and F 
 
-#====================================================================
-# Introducing uncertainty on stock assessment
-#====================================================================
-#--------------------------------------------------------------------
-# bootstraping catchability residuals
-# for simplicity we'll use one index only
-#--------------------------------------------------------------------
-# set nits and seed
-set.seed(1234)
-nits <- 25
-
-# run xsa
-data(ple4.index)
-ple4.xsa <- FLXSA(ple4, ple4.index, FLXSA.control())
-
-# sample with replacement by randomly selecting years
-# this way correlations between ages are preserved.
-
-x <- dims(ple4.index)$minyear:dims(ple4.index)$maxyear
-size <- dims(ple4.index)$year*nits
-mc.yrs <-sample(x, size, TRUE)
-
-# then create an FLQuant for the residuals with the right dimensions
-dmns <- dimnames(ple4.index@index)
-dmns$iter<-1:nits
-dev.index <- FLQuant(c(ple4.xsa@index.res[[1]][,ac(mc.yrs)]), dimnames=dmns)
-# NOTE THE USAGE OF THE RECYCLING RULE ON OUR BENEFIT
-plot(dev.index)
-
-# bootstrap the index
-ple4.index@index <- ple4.xsa@index.hat[[1]]*exp(dev.index)
-
-# rerun the assessment 100 times and put results in stock
-ple4.bxsa <- FLXSA(ple4, ple4.index, FLXSA.control(), diag.flag=F)
-ple4.boot <- ple4 + ple4.bxsa
-
-#plot bootstrap results wrt SSB timeseries
-plot(ple4.boot[,as.character(2000:2008)])
-
-#--------------------------------------------------------------------
-# propagate into S/R
-#--------------------------------------------------------------------
-
-ple4SR <- fmle(as.FLSR(ple4.boot, model="ricker"))
-params(ple4SR)

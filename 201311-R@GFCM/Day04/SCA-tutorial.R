@@ -12,7 +12,7 @@
 install.packages("FLa4a", repos = "http://flr-project.org/Rdevel")
 
 # and you will need to install these extra packages (if you do not have them already)
-install.packages(c("triangle", "copula", "ADGofTest", "gsl", "latticeExtra", "mvtnorm", "np", "pspline", "RColorBrewer", "stabledist")) 
+install.packages(c("triangle", "copula", "latticeExtra",  "np")) 
 
 # you only need to install these packages once.  
 #######
@@ -50,7 +50,9 @@ data(ple4.indices)
 # okay! now lets fit a stock assessment:
 
 # choose a model for log Fishing mortality
-fmodel <- ~ 1
+#fmodel <- ~ 1
+# or
+fmodel <- ~ s(year)
 
 # choose a model for survey catchablity - this has to be a list of formulas (Models) - one for each survey
 
@@ -58,6 +60,8 @@ qmodel <- list( ~ 1 )
 
 # fit the model
 simplefit <- a4a(fmodel, qmodel, stock = ple4,  indices = ple4.indices[1], fit = "assessment")
+
+index(ple4.indices[[1]])
 
 # look at a quick summary
 summary(simplefit)
@@ -79,6 +83,7 @@ ple4.sim <- propagate(ple4, iter = 100)
 # and we add the stock assessment to this new stock object
 ple4.sim.fit <- ple4.sim + simplefit
 
+plot(ple4.sim.fit)
 
 # lets do a quick comparison with default XSA
 library(FLXSA)
@@ -113,6 +118,5 @@ myfit <- a4a(fmodel, qmodel, stock = ple4,  indices = ple4.indices[1])
 
 # plot the fit
 plot(ple4 + myfit)
-
 
 

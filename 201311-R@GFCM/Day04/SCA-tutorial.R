@@ -2,16 +2,22 @@
 # Statistical catch at age models with FLa4a
 # =========================
 #
-# Ispra, 18th - 22nd March, 2013
+# GFCM HQ, 7th November, 2013
 # -------------------------
 ################################################
 
 # Install FLa4a
 
-# only run if you do not have these packages installed on your computer
+# you will need do download
+install.packages("FLa4a", repos = "http://flr-project.org/Rdevel")
 
-#install.packages("RcppArmadillo")
-#install.packages("FLa4a", repos="http://flr-project.org/Rdevel")
+# and you will need to install these extra packages (if you do not have them already)
+install.packages(c("triangle", "copula", "ADGofTest", "gsl", "latticeExtra", "mvtnorm", "np", "pspline", "RColorBrewer", "stabledist")) 
+
+# you only need to install these packages once.  
+#######
+
+################################################
 
 
 # load the libary and some data

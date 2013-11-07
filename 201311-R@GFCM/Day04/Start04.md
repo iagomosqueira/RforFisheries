@@ -32,8 +32,13 @@ So far we have covered:
 
 # Today
 
+* Introduce stock assessment
+* Tutorial on VPA and Seperable VPA
+* Demo using XSA
+* Tutorial on Statistical catch-at-age framework (a4a)
+* !! **stock assessment contest** !!
 
-
+\url{https://github.com/iagomosqueira/RforFisheries}
 
 # What is stock assessment ?
 
@@ -46,29 +51,21 @@ So far we have covered:
   
 *Conditioned on the holy grail - M*
 
+\url{http://tyflr.flr-project.org}
+
 # History
 
-* VPAs
-    * N = f(C|Flast)
+* first VPAs
+    * N is fully conditioned given catch and final year F
 * Tunned Models (VPAs, XSA)
-    * N = f(I|C)
+    * N is conditioned on catch tuned using survey info
     * Error in I
-* SCA
-    * N = f(I,C)
+* Statistical catch at age (SAM, a4a, etc. etc. ... remember Schnute!)
+    * N is "tuned" using survey and catch
     * Error in I
     * Error in C
     * Error in S/R, etc
 
-# Outline
-
-* Biomass dynamic models
-* VPA
-* Seperable VPA
-* XSA
-* Statistical catch-at-age framework (a4a)
-
-# Teach yourself FLR
-
-http://tyflr.flr-project.org
+\url{http://tyflr.flr-project.org}
 
 

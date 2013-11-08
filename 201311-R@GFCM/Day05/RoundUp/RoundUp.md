@@ -48,6 +48,7 @@
 
 * Creating an FLStock and FLIndex from text files
 * Introduction to length slicing in FLa4a
+* Worked with your own data
 
 # Usefull web pages
 

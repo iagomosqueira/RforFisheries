@@ -45,16 +45,10 @@ Maritime Affairs Unit - FISHREG
 * 09.00 REVIEW, Q&A (CO, CM, FS)
 
 * Data exploration (CM)
-    * M by age
-    * Plot maturity
-    * Hist LFD
 
 * 10.30 **COFFEE**
 
-* Data exploration continued
-    * M by age
-    * Plot maturity
-    * Hist LFD
+* Data exploration continued (CM)
 
 
 * 12.30 **LUNCH**
@@ -75,6 +69,7 @@ Maritime Affairs Unit - FISHREG
 ### Morning (09:00 - 12:30) ###
 
 * 09.00 REVIEW, Q&A (CO, CM, FS)
+
 * 09.15 Introduction to FLR
 *       Installing FLCore
 *       FLQuant tutorial
@@ -92,7 +87,7 @@ Maritime Affairs Unit - FISHREG
 * 15.00 **COFFEE**
 
 * 15.30 More FLR
-*       Forecasting
+
 * 17.00 SUMMARY
 
 
@@ -100,24 +95,20 @@ Maritime Affairs Unit - FISHREG
 
 ### Morning (09:30 - 12:30) ###
 * 09.00 REVIEW, Q&A (CO, CM, FS)
-* FLa4a and FLXSA (CM)
+* FLIndex (CM)
+* VPA
 
 ### Afternoon 14:00 - 17:30 ###
-* More FLa4a and FLXSA (CM)
-    * Diagnostics etc
+* FLXSA and FLa4a (CM)
 
-
-* 17.00 SUMMARY
+* 17.00 FIGHT!!!
 
 ## Friday ##
 
 ### Morning (09:00 - 12:30) ###
-* 09.00 REVIEW, Q&A (CO, CM, FS)
-* Reference points (CO)
+*  Length Slicing (FS)
 
 
-### Afternoon 14:00 - 17:30 ###
-* Forecasting (FS)
-* OR
-* Open session
+
+
 

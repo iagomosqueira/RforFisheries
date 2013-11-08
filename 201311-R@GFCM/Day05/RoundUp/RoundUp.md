@@ -60,14 +60,12 @@
 
 \url{http://www.google.co.uk}
 
-# 
-
-\includegraphics[keepaspectratio, width=1.0\textwidth]{graphics/exhaustedperson.jpg}
-
 
 # 
 
 \includegraphics[keepaspectratio, width=1.0\textwidth]{graphics/thank-you.jpg}
 
+# 
 
+\includegraphics[keepaspectratio, width=1.0\textwidth]{graphics/exhaustedperson.jpg}
 
